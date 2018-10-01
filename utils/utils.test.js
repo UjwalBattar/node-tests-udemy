@@ -12,6 +12,13 @@ it('should add two numbers', () => {
     // }
 });
 
+it('should async add two numbers', (done) => {
+    utils.asyncAdd(3, 4, (sum) => {
+        expect(sum).toBe(7).toBeA('number');
+        done();
+    });
+});
+
 it('should square a numbers', () => {
     let res = utils.square(4);
 
@@ -21,11 +28,18 @@ it('should square a numbers', () => {
     // }
 });
 
-it('shoudl expect some value', () => {
+it('should async square a number', (done) => {
+    utils.asyncSquare(4, (res) => {
+        expect(res).toBe(16).toBeA('number');
+        done();
+    });
+});
+
+it('should expect some value', () => {
     expect({
         name: "Ujwal",
         age: 25,
-        location: "Cali"
+        location: "California"
     }).toExclude({
         age: 24
     });
@@ -33,7 +47,7 @@ it('shoudl expect some value', () => {
     // expect({
     //     name: "Ujwal",
     //     age: 25,
-    //     location: "Cali"
+    //     location: "California"
     // }).toInclude({
     //     age: 25
     // });
@@ -53,9 +67,10 @@ it('shoudl expect some value', () => {
 
 it('should verify first and last names are set', () => {
     let user = {
-        location: "Cali",
+        location: "California",
         age: 25
     };
+
     let res = utils.setName(user, "Ujwal Battar");
 
     expect(res).toInclude({

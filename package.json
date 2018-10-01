@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/UjwalBattar/node-tests-udemy#readme",
   "devDependencies": {
+    "expect": "^1.20.2",
     "mocha": "^5.2.0"
   }
 }
